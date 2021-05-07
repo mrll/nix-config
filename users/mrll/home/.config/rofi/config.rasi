@@ -1,0 +1,6 @@
+configuration {
+  show-icons:   true;
+  icon-theme:   "oomox-gruvbox-dark";
+  theme:        "gruvbox-dark-hard";
+  modi:         "windowcd,drun,ssh,file-browser";
+}
