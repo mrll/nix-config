@@ -1,9 +1,5 @@
 { pkgs, ... }:
-let
-  vscode-with-extensions = pkgs.vscode-with-extensions.override {
-    vscodeExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix);
-  };
-in
+
 {
   # --------------------------------------------------------------------------
   # xserver
@@ -118,7 +114,7 @@ in
     vulkan-tools
     glxinfo
     # develop
-    vscode-with-extensions
+    vscode
     # web
     thunderbird
     tdesktop

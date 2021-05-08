@@ -50,4 +50,27 @@ in
       $LINK -Tfs $DOTFILE_DIR/.config/Code/User/settings.json $USER_DIR/.config/Code/User/settings.json
     '';
   };
+
+  # --------------------------------------------------------------------------
+  # vscode extensions
+  # --------------------------------------------------------------------------
+
+  system.activationScripts = {
+    fix-mrll-vscode-extensions =
+      let
+        vscodeExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix);
+      in
+      {
+        text = ''
+          EXT_DIR=${config.users.users.mrll.home}/.vscode/extensions
+          mkdir -p $EXT_DIR
+          chown ${config.users.users.mrll.name}:${config.users.users.mrll.group} $EXT_DIR
+          for x in ${lib.concatMapStringsSep " " toString vscodeExtensions}; do
+              ln -sf $x/share/vscode/extensions/* $EXT_DIR/
+          done
+          chown -R ${config.users.users.mrll.name}:${config.users.users.mrll.group} $EXT_DIR
+        '';
+        deps = [ ];
+      };
+  };
 }

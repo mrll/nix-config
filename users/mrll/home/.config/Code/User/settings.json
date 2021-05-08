@@ -17,5 +17,6 @@
   "rust-client.disableRustup": true,
   "explorer.incrementalNaming": "smart",
   "terminal.integrated.rendererType": "dom",
-  "window.menuBarVisibility": "toggle"
+  "window.menuBarVisibility": "toggle",
+  "tabnine.experimentalAutoImports": true
 }
