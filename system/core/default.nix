@@ -107,11 +107,27 @@
           "zsh-interactive-cd"
         ];
       };
+    };
+  };
 
-      shellAliases = {
-        cat = "bat";
-        ps = "procs";
-      };
+  # --------------------------------------------------------------------------
+  # environment
+  # --------------------------------------------------------------------------
+
+  environment = {
+    shells = with pkgs; [ bash nushell zsh ];
+    shellAliases = {
+      # bat
+      cat = "bat";
+      # exa
+      ls = "exa --icons";
+      ll = "ls -l";
+      la = "ls -al";
+      tree = "ls --tree";
+      # procs
+      ps = "procs";
+      # zoxide
+      zq = "zoxide query";
     };
   };
 
@@ -120,16 +136,25 @@
   # --------------------------------------------------------------------------
 
   environment.systemPackages = with pkgs;[
-    # tools
+    # shell / core
     bat
+    bandwhich
     bottom
-    direnv
+    du-dust
+    exa
+    fd
     fzf
+    nushell
+    procs
+    ripgrep
+    sd
+    starship
+    tealdeer
+    zoxide
+    # tools
+    direnv
     neofetch
     nixpkgs-fmt
-    procs
-    starship
-    tree
     # files
     ranger
     # archives

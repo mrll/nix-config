@@ -12,10 +12,16 @@
     xkbOptions = "caps:ctrl_modifier";
 
     desktopManager.xterm.enable = false;
-    displayManager.defaultSession = "none+i3";
-    displayManager.lightdm = {
-      enable = true;
-      background = ./wallpaper/wallpaper.png;
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin = {
+        enable = true;
+        user = "mrll";
+      };
+      lightdm = {
+        enable = true;
+        background = ./wallpaper/wallpaper.png;
+      };
     };
 
     windowManager.i3 = {
