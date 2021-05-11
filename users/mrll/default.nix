@@ -11,7 +11,7 @@ in
     createHome = true;
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" ];
+    extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" "libvirtd" ];
     hashedPassword = fileContents ./secrets/mrll.hash;
     shell = pkgs.zsh;
   };

@@ -82,6 +82,7 @@
           ./machines/ceres
           ./system/desktop
           ./system/gaming
+          ./system/virtualisation
         ];
 
         # Flake output for configuration to be passed to. Defaults to `nixosConfigurations`.

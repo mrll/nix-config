@@ -31,9 +31,11 @@
     # luks partition
     # ------------------------------------------------------------------------
 
-    initrd.luks.devices.root = {
-      device = "/dev/nvme0n1p2";
-      allowDiscards = true;
+    initrd.luks.devices = {
+      root = {
+        device = "/dev/nvme0n1p2";
+        allowDiscards = true;
+      };
     };
 
     # ------------------------------------------------------------------------
@@ -69,6 +71,18 @@
     device = "/dev/disk/by-uuid/6b4ba9a8-10a1-4b8e-892a-be89739a42d4";
     fsType = "ext4";
     options = [ "noatime" "nodiratime" "discard" ];
+  };
+
+  fileSystems."/var/lib/libvirt" = {
+    device = "/dev/disk/by-uuid/c8a74d9c-fa4d-4583-a9fc-229ed119b58e";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" "discard" ];
+    encrypted = {
+      enable = true;
+      blkDev = "/dev/sda1";
+      keyFile = "/mnt-root/root/kvm-keyfile";
+      label = "libvirt";
+    };
   };
 
   fileSystems."/boot" = {

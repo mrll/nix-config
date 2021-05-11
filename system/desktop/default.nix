@@ -29,6 +29,7 @@
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
         dunst
+        feh
         i3lock-fancy
         libnotify
         polybarFull
