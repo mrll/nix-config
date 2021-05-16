@@ -25,12 +25,22 @@
   # sound
   # --------------------------------------------------------------------------
 
-  hardware.pulseaudio = {
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
-    support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    jack.enable = true;
+    pulse.enable = true;
   };
+
+  #hardware.pulseaudio = {
+  #  enable = true;
+  #  package = pkgs.pulseaudioFull;
+  #  extraModules = [ pkgs.pulseaudio-modules-bt ];
+  #  support32Bit = true;
+  #};
 
   # --------------------------------------------------------------------------
   # bluetooth
@@ -173,6 +183,7 @@
     wget
     # media
     playerctl
+    imagemagick
     # security
     gopass
     pass

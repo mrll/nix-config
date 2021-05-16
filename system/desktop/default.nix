@@ -96,7 +96,7 @@
   # --------------------------------------------------------------------------
 
   services = {
-    gnome3.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
 
   # --------------------------------------------------------------------------
@@ -114,18 +114,32 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     vivaldi-widevine
-    # media
+    # images
+    darktable
+    drawio
+    gthumb
+    # sound
     pavucontrol
+    spotify
+    # video
+    celluloid
+    gnome.cheese
+    lightworks
     # opengl / vulkan
     vulkan-loader
     vulkan-tools
     glxinfo
     # develop
     vscode
+    fritzing
     # web
-    thunderbird
+    nmap
+    nmap-graphical
+    teams
     tdesktop
+    thunderbird
     remmina
+    wireshark
     # gtk theme
     gruvbox-dark-gtk
     gruvbox-dark-icons-gtk

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -99,6 +99,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     prime = {
       sync.enable = true;
       sync.allowExternalGpu = true;

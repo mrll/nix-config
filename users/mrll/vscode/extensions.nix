@@ -12,4 +12,5 @@
   { name = "tabnine-vscode"; publisher = "TabNine"; version = "3.4.4"; sha256 = "1k5aygmlx41cf4fbw2qps5f10hsnbikvglgc7j03hn6jx3022vv8"; }
   { name = "even-better-toml"; publisher = "tamasfe"; version = "0.12.1"; sha256 = "1421ybxmz164m7g66bwl2wzkm0sgbz6n4cx9fwvas31n0xx3s6hs"; }
   { name = "vscode-icons"; publisher = "vscode-icons-team"; version = "11.4.0"; sha256 = "0zdyn554gl9cpbw0rfmj96yzdmpy3942kxp377m6qkiavyi0d6s9"; }
+  { name = "vscode-drawio"; publisher = "hediet"; version = "1.4.0"; sha256 = "14x204gypaqwayxd0y8gd4cf0xw4f131fagjn17f1hxkzpd8wd60"; }
 ]

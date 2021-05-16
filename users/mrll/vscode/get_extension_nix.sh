@@ -11,13 +11,14 @@ function fail() {
 function get_vsixpkg() {
     N="$1.$2"
 
+    echo 'Getting extension: name = "'$2'"; publisher = "'$1'"'
     # Create a tempdir for the extension download
     EXTTMP=$(mktemp -d -t vscode_exts_XXXXXXXX)
 
     URL="https://$1.gallery.vsassets.io/_apis/public/gallery/publisher/$1/extension/$2/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
 
     # Quietly but delicately curl down the file, blowing up at the first sign of trouble.
-    curl --silent --show-error --fail -X GET -o "$EXTTMP/$N.zip" "$URL"
+    curl --show-error --fail -X GET -o "$EXTTMP/$N.zip" "$URL"
     # Unpack the file we need to stdout then pull out the version
     VER=$(jq -r '.version' <(unzip -qc "$EXTTMP/$N.zip" "extension/package.json"))
     # Calculate the SHA
