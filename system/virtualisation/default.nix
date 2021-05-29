@@ -1,27 +1,43 @@
 { config, lib, pkgs, ... }:
 
 {
-  # --------------------------------------------------------------------------
-  # libvirtd
-  # --------------------------------------------------------------------------
+  virtualisation = {
+    # ------------------------------------------------------------------------
+    # docker
+    # ------------------------------------------------------------------------
 
-  virtualisation.libvirtd = {
-    enable = true;
-    allowedBridges = [ "virbr0" ];
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
+    };
 
-    onBoot = "start";
-    onShutdown = "suspend";
+    # ------------------------------------------------------------------------
+    # libvirtd
+    # ------------------------------------------------------------------------
 
-    qemuOvmf = true;
-    qemuPackage = pkgs.qemu_kvm;
-    qemuRunAsRoot = false;
+    libvirtd = {
+      enable = true;
+      allowedBridges = [ "virbr0" ];
+
+      onBoot = "start";
+      onShutdown = "suspend";
+
+      qemuOvmf = true;
+      qemuPackage = pkgs.qemu_kvm;
+      qemuRunAsRoot = false;
+    };
   };
 
   # --------------------------------------------------------------------------
   # packages
   # --------------------------------------------------------------------------
 
-  environment.systemPackages = with pkgs; lib.mkIf config.services.xserver.enable [
-    virt-manager
+  environment.systemPackages = with pkgs; [
+    docker-compose
+    (lib.mkIf config.services.xserver.enable virt-manager)
   ];
 }

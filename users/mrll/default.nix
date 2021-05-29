@@ -11,7 +11,7 @@ in
     createHome = true;
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" "libvirtd" ];
+    extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" "libvirtd" "docker" ];
     hashedPassword = fileContents ./secrets/mrll.hash;
     shell = pkgs.zsh;
   };
@@ -66,6 +66,7 @@ in
       {
         text = ''
           EXT_DIR=${config.users.users.mrll.home}/.vscode/extensions
+          rm -rf $EXT_DIR
           mkdir -p $EXT_DIR
           chown ${config.users.users.mrll.name}:${config.users.users.mrll.group} $EXT_DIR
           for x in ${lib.concatMapStringsSep " " toString vscodeExtensions}; do

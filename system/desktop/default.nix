@@ -131,11 +131,8 @@
     glxinfo
     # develop
     vscode
-    fritzing
     # web
-    nmap
     nmap-graphical
-    teams
     tdesktop
     thunderbird
     remmina

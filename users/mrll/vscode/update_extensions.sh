@@ -14,6 +14,7 @@ function fail() {
 function get_vsixpkg() {
     N="$1.$2"
 
+    echo 'Getting extension: name = "'$2'"; publisher = "'$1'"'
     # Create a tempdir for the extension download
     EXTTMP=$(mktemp -d -t vscode_exts_XXXXXXXX)
 
