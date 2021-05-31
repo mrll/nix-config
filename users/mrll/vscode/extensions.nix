@@ -8,9 +8,9 @@
   { name = "vscode-pull-request-github"; publisher = "GitHub"; version = "0.26.0"; sha256 = "0nnqyq7zvqi81kv3b6wsidsxdflaypvj5zs93if531xn5ifw3i0r"; }
   { name = "gruvbox"; publisher = "jdinhlife"; version = "1.5.0"; sha256 = "14dm19bwlpmvarcxqn0a7yi1xgpvp93q6yayvqkssravic0mwh3g"; }
   { name = "nix-ide"; publisher = "jnoortheen"; version = "0.1.12"; sha256 = "1wkc5mvxv7snrpd0py6x83aci05b9fb9v4w9pl9d1hyaszqbfnif"; }
-  { name = "rust-analyzer"; publisher = "matklad"; version = "0.2.612"; sha256 = "0a87lnhzpzlni8b33hdskifi0qir88rnmfbzgsy4m5ahs8isw6az"; }
+  { name = "rust-analyzer"; publisher = "matklad"; version = "0.2.620"; sha256 = "1vlvjwwjfpr17cdpbdb37hpya2rg8r7qn5s8q8jxyxdp30xvbxvk"; }
   { name = "mongodb-vscode"; publisher = "mongodb"; version = "0.5.0"; sha256 = "00y9gqixlizr7sdic9hacfh0h1b6y0i187cyc63928b8q24sy8k3"; }
-  { name = "vscode-docker"; publisher = "ms-azuretools"; version = "1.12.1"; sha256 = "01ba220ykyrfflx7lb4j0n8cwbkny8kn19a26sadj6ydh34qy3bk"; }
+  { name = "vscode-docker"; publisher = "ms-azuretools"; version = "1.13.0"; sha256 = "09iq528m3f8xa67daxyxddmg6xkzbbs2jps4hdni68j7jn0724y7"; }
   { name = "vscode-dotnet-runtime"; publisher = "ms-dotnettools"; version = "1.1.0"; sha256 = "01xwh72yrsskf7ss9lai9p7xjgz1ch4ia888s4gvmakw7i5bqmwj"; }
   { name = "crates"; publisher = "serayuzgur"; version = "0.5.9"; sha256 = "0l26pyvw7n3bszf97yx6qps72acq112akg3q4jq5mvlibng1nwk0"; }
   { name = "tabnine-vscode"; publisher = "TabNine"; version = "3.4.4"; sha256 = "1k5aygmlx41cf4fbw2qps5f10hsnbikvglgc7j03hn6jx3022vv8"; }
