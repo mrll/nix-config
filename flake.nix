@@ -3,7 +3,7 @@
 
   inputs = {
     # NixOS / Packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
     # Flake Utils Plus
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
@@ -14,7 +14,6 @@
 
       # Supported systems, used for packages, apps, devShell and multiple other definitions..
       supportedSystems = [ "x86_64-linux" ];
-
 
       ################
       ### channels ###
