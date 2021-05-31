@@ -131,6 +131,7 @@
     glxinfo
     # develop
     vscode
+    mongodb-compass
     # web
     nmap-graphical
     tdesktop
