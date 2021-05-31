@@ -14,6 +14,7 @@ in
     extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" "libvirtd" "docker" ];
     hashedPassword = fileContents ./secrets/mrll.hash;
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keyFiles = [ ./secrets/ssh.pub ];
   };
 
   # --------------------------------------------------------------------------
