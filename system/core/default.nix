@@ -90,6 +90,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.cleanTmpDir = true;
+  boot.plymouth.enable = true;
   system.stateVersion = "20.09";
 
   # --------------------------------------------------------------------------
@@ -183,8 +184,10 @@
     gitAndTools.gitFull
     git-crypt
     gnupg
+    nmap
     rsync
     w3m
+    wireshark-cli
     wget
     # media
     playerctl

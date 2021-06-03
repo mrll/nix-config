@@ -45,7 +45,7 @@
 
   services.dbus = {
     enable = true;
-    packages = [ pkgs.gnome3.dconf pkgs.gcr ];
+    packages = [ pkgs.gnome.dconf pkgs.gcr ];
   };
   programs.dconf.enable = true;
 
@@ -116,7 +116,6 @@
     vivaldi-widevine
     # images
     darktable
-    drawio
     gthumb
     # sound
     pavucontrol

@@ -17,4 +17,5 @@
   { name = "even-better-toml"; publisher = "tamasfe"; version = "0.12.2"; sha256 = "1vz1sxkg24hsn4zfwzjdry4pp1hrc1fp516xpcyvq3ajr1xddlvs"; }
   { name = "vscode-icons"; publisher = "vscode-icons-team"; version = "11.4.0"; sha256 = "0zdyn554gl9cpbw0rfmj96yzdmpy3942kxp377m6qkiavyi0d6s9"; }
   { name = "markdown-all-in-one"; publisher = "yzhang"; version = "3.4.0"; sha256 = "0ihfrsg2sc8d441a2lkc453zbw1jcpadmmkbkaf42x9b9cipd5qb"; }
+  { name = "tauri-vscode"; publisher = "tauri-apps"; version = "0.1.2"; sha256 = "0l8l1ysp7k8g0wlm8wzjjkccr1vwv6djx19jbf2y36x4p67da0m8"; }
 ]
