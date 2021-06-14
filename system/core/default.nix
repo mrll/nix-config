@@ -144,6 +144,7 @@
       ps = "procs";
       # zoxide
       zq = "zoxide query";
+      cd = "z";
     };
   };
 
@@ -160,7 +161,6 @@
     exa
     fd
     fzf
-    nushell
     procs
     ripgrep
     sd

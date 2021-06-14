@@ -3,12 +3,13 @@
 
   inputs = {
     # NixOS / Packages
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
+    nixos.url = "github:NixOS/nixpkgs/nixos-21.05";
+    nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     # Flake Utils Plus
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = inputs@{ self, nixpkgs, utils }:
+  outputs = inputs@{ self, nixos, nixos-unstable, utils }:
     utils.lib.systemFlake {
       inherit self inputs;
 
@@ -22,25 +23,18 @@
       # Configuration that is shared between all channels.
       channelsConfig = { allowUnfree = true; };
 
-      # Overlays which are applied to all channels.
-      sharedOverlays = [ ];
-
       # Specific channel configuration
       channels.nixpkgs = {
         # Nixpkgs flake reference to be used in the configuration.
-        input = nixpkgs;
-
-        # Channel specific config options.
-        config = { };
-
-        # Patches to apply on selected channel.
-        patches = [ ];
+        input = nixos;
 
         # Overlays to apply on a selected channel.
         overlaysBuilder = channels: [
-          # (final: prev: { inherit (channels.unstable) neovim; })
+          # Overwrites specified packages to be used from unstable channel.
+          (final: prev: { inherit (channels.unstable) discord; })
         ];
       };
+      channels.unstable.input = nixos-unstable;
 
       ####################
       ### hostDefaults ###
@@ -55,14 +49,8 @@
           ./users
           ./system/core
           utils.nixosModules.saneFlakeDefaults
-          nixpkgs.nixosModules.notDetected
+          nixos.nixosModules.notDetected
         ];
-
-        # Reference to `channels.<name>.*`, defines default channel to be used by hosts. Defaults to "nixpkgs".
-        channelName = "nixpkgs";
-
-        # Extra arguments to be passed to all modules. Merged with host's extraArgs.
-        extraArgs = { };
       };
 
       ######################
@@ -70,12 +58,6 @@
       ######################
 
       hosts.ceres = {
-        # Extra arguments to be passed to the modules.
-        extraArgs = { };
-
-        # These are not part of the module system, so they can be used in `imports` lines without infinite recursion.
-        specialArgs = { };
-
         # Host specific configuration.
         modules = [
           ./machines/ceres
@@ -83,9 +65,6 @@
           ./system/gaming
           ./system/virtualisation
         ];
-
-        # Flake output for configuration to be passed to. Defaults to `nixosConfigurations`.
-        output = "nixosConfigurations";
       };
     };
 }

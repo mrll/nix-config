@@ -37,14 +37,12 @@ in
       $LINK -Tfs $DOTFILE_DIR/.zshrc            $USER_DIR/.zshrc
       $LINK -Tfs $DOTFILE_DIR/.background-image $USER_DIR/.background-image
 
-
       # .config folder links
       $LINK -fs $DOTFILE_DIR/.config/alacritty  $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/autorandr  $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/dunst      $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/gtk-3.0    $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/i3         $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/nu         $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/polybar    $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/rofi       $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/.config/rofi-pass  $USER_DIR/.config/
