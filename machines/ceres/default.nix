@@ -137,4 +137,25 @@
       i915-GVTg_V5_4 = { uuid = [ "712046d2-c8e8-4daa-9757-43645d6ad6af" ]; };
     };
   };
+
+  # --------------------------------------------------------------------------
+  # network interfaces
+  # --------------------------------------------------------------------------
+
+  systemd.network = {
+    links."10-wifi0" = {
+      matchConfig.MACAddress = "dc:71:96:69:96:cd";
+      linkConfig.Name = "wifi0";
+    };
+    links."10-ether0" = {
+      matchConfig.MACAddress = "80:fa:5b:7a:ad:a5";
+      linkConfig.Name = "ether0";
+    };
+    links."10-ether1egpu" = {
+      matchConfig.MACAddress = "98:bb:1e:1c:be:06";
+      linkConfig.Name = "ether1egpu";
+    };
+  };
+
+  networking.wireless.interfaces = [ "wifi0" ];
 }
