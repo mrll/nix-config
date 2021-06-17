@@ -5,11 +5,12 @@
     # NixOS / Packages
     nixos.url = "github:NixOS/nixpkgs/nixos-21.05";
     nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-master.url = "github:NixOS/nixpkgs/master";
     # Flake Utils Plus
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
-  outputs = inputs@{ self, nixos, nixos-unstable, utils }:
+  outputs = inputs@{ self, nixos, nixos-unstable, nixos-master, utils }:
     utils.lib.systemFlake {
       inherit self inputs;
 
@@ -31,10 +32,21 @@
         # Overlays to apply on a selected channel.
         overlaysBuilder = channels: [
           # Overwrites specified packages to be used from unstable channel.
-          (final: prev: { inherit (channels.unstable) discord; })
+          (final: prev: {
+            inherit (channels.unstable)
+              discord;
+          })
+          # Overwrites specified packages to be used from master channel.
+          (final: prev: {
+            inherit (channels.master)
+              vivaldi
+              vivaldi-ffmpeg-codecs
+              vivaldi-widevine;
+          })
         ];
       };
       channels.unstable.input = nixos-unstable;
+      channels.master.input = nixos-master;
 
       ####################
       ### hostDefaults ###

@@ -17,7 +17,6 @@
 
     firewall = {
       enable = true;
-      allowPing = false;
     };
   };
 
@@ -120,9 +119,17 @@
       };
     };
   };
+
   services = {
     fwupd = {
       enable = true;
+    };
+    openssh = {
+      enable = true;
+      forwardX11 = config.services.xserver.enable;
+      openFirewall = true;
+      passwordAuthentication = false;
+      permitRootLogin = "no";
     };
   };
 
@@ -131,7 +138,7 @@
   # --------------------------------------------------------------------------
 
   environment = {
-    shells = with pkgs; [ bash nushell zsh ];
+    shells = with pkgs; [ bash zsh ];
     shellAliases = {
       # bat
       cat = "bat";

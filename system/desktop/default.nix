@@ -7,7 +7,6 @@
 
   services.xserver = {
     enable = true;
-    useGlamor = true;
     layout = "de";
     xkbOptions = "caps:ctrl_modifier";
 
@@ -74,6 +73,7 @@
 
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     driSupport32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     setLdLibraryPath = true;
