@@ -39,7 +39,6 @@
       ps = "procs";
       # zoxide
       zq = "zoxide query";
-      cd = "z";
     };
   };
 }

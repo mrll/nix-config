@@ -37,10 +37,5 @@ in
 {
   programs.browserpass.enable = true;
 
-  environment.systemPackages = devPkgs ++ guiPkgs ++ mediaPkgs ++ toolsPkgs ++ webPkgs;
-
-  # ------------------------------------------------------------------------
-  # Config Files
-  # ------------------------------------------------------------------------
-
+  environment.systemPackages = devPkgs ++ mediaPkgs ++ toolsPkgs ++ webPkgs;
 }

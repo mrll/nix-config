@@ -4,15 +4,18 @@
   imports = [
     # Wifi Access Points & PSK
     ./secrets/wifi_networks.nix
-    # Configuration
+    # System Configuration
     ./audio.nix
     ./bluetooth.nix
+    ./colors.nix
     ./locale.nix
     ./misc.nix
     ./network.nix
     ./packages.nix
     ./shells.nix
     ./upower.nix
+    # Configuration Files
+    ../config
   ];
 
   nix = {

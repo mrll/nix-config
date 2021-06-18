@@ -25,31 +25,31 @@ in
     mrll-dotfiles.text = ''
       export LINK=${pkgs.coreutils}/bin/ln
       export MKDIR=${pkgs.coreutils}/bin/mkdir
-      export DOTFILE_DIR=/etc/nixos/users/mrll/secrets/home
+      export DOTFILE_DIR=/etc/nixos/users/mrll/secrets
       export USER_DIR=/home/mrll
 
       # needed directories
       $MKDIR -p $USER_DIR/.config
+      $MKDIR -p $USER_DIR/.config/alacritty
       $MKDIR -p $USER_DIR/.config/Code/User
+      $MKDIR -p $USER_DIR/.config/i3
+      $MKDIR -p $USER_DIR/.config/rofi
 
       # ~ files
-      $LINK -Tfs $DOTFILE_DIR/.gitconfig        $USER_DIR/.gitconfig
-      $LINK -Tfs $DOTFILE_DIR/.zshrc            $USER_DIR/.zshrc
-      $LINK -Tfs $DOTFILE_DIR/.background-image $USER_DIR/.background-image
+      $LINK -Tfs $DOTFILE_DIR/gitconfig        $USER_DIR/.gitconfig
 
       # .config folder links
-      $LINK -fs $DOTFILE_DIR/.config/alacritty  $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/autorandr  $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/dunst      $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/gtk-3.0    $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/i3         $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/polybar    $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/rofi       $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/rofi-pass  $USER_DIR/.config/
-      $LINK -fs $DOTFILE_DIR/.config/starship   $USER_DIR/.config/
+      $LINK -fs $DOTFILE_DIR/config/autorandr  $USER_DIR/.config/
+      $LINK -fs $DOTFILE_DIR/config/gtk-3.0    $USER_DIR/.config/
+      $LINK -fs $DOTFILE_DIR/config/gtk-4.0    $USER_DIR/.config/
 
-      # .config single file links
-      $LINK -Tfs $DOTFILE_DIR/.config/Code/User/settings.json $USER_DIR/.config/Code/User/settings.json
+      # .config file links
+      $LINK -Tfs $DOTFILE_DIR/config/Code/User/settings.json $USER_DIR/.config/Code/User/settings.json
+
+      # link config from /etc
+      $LINK -fs /etc/i3/config                  $USER_DIR/.config/i3/config
+      $LINK -fs /etc/alacritty/alacritty.yml    $USER_DIR/.config/alacritty/alacritty.yml
+      $LINK -fs /etc/rofi.rasi                  $USER_DIR/.config/rofi/config.rasi
     '';
   };
 
