@@ -17,6 +17,8 @@ let
     lightworks
   ];
   toolsPkgs = [
+    arc-theme
+    arc-icon-theme
     alacritty
     vulkan-loader
     vulkan-tools
