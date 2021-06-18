@@ -28,6 +28,5 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.cleanTmpDir = true;
-  boot.plymouth.enable = true;
   system.stateVersion = "20.09";
 }

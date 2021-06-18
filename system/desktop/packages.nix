@@ -8,13 +8,15 @@ let
     mongodb-compass
   ];
   mediaPkgs = [
-    darktable
-    gthumb
-    pavucontrol
-    spotify
     celluloid
+    darktable
     gnome.cheese
+    gthumb
     lightworks
+    pavucontrol
+    pinta
+    spotify
+    xournalpp
   ];
   toolsPkgs = [
     arc-theme

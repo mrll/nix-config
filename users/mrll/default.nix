@@ -23,34 +23,42 @@ in
 
   system.activationScripts = {
     mrll-dotfiles.text = ''
-      export LINK=${pkgs.coreutils}/bin/ln
-      export MKDIR=${pkgs.coreutils}/bin/mkdir
+      export LINK=/run/current-system/sw/bin/ln
+      export MKDIR=/run/current-system/sw/bin/mkdir
+      export CHOWN=/run/current-system/sw/bin/chown
       export DOTFILE_DIR=/etc/nixos/users/mrll/secrets
       export USER_DIR=/home/mrll
 
-      # needed directories
+      # create directories
       $MKDIR -p $USER_DIR/.config
       $MKDIR -p $USER_DIR/.config/alacritty
       $MKDIR -p $USER_DIR/.config/Code/User
       $MKDIR -p $USER_DIR/.config/i3
       $MKDIR -p $USER_DIR/.config/rofi
 
-      # ~ files
+      # link $HOME files
       $LINK -Tfs $DOTFILE_DIR/gitconfig        $USER_DIR/.gitconfig
       $LINK -Tfs $DOTFILE_DIR/background-image $USER_DIR/.background-image
 
-      # .config folder links
+      # link $HOME/.config folders
       $LINK -fs $DOTFILE_DIR/config/autorandr  $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/config/gtk-3.0    $USER_DIR/.config/
       $LINK -fs $DOTFILE_DIR/config/gtk-4.0    $USER_DIR/.config/
 
-      # .config file links
+      # link $HOME/.config files
       $LINK -Tfs $DOTFILE_DIR/config/Code/User/settings.json $USER_DIR/.config/Code/User/settings.json
 
-      # link config from /etc
+      # link files from /etc
       $LINK -fs /etc/i3/config                  $USER_DIR/.config/i3/config
       $LINK -fs /etc/alacritty/alacritty.yml    $USER_DIR/.config/alacritty/alacritty.yml
       $LINK -fs /etc/rofi.rasi                  $USER_DIR/.config/rofi/config.rasi
+
+      # update owner & group
+      $CHOWN mrll:users $USER_DIR/.config
+      $CHOWN mrll:users $USER_DIR/.config/alacritty
+      $CHOWN mrll:users $USER_DIR/.config/Code/User
+      $CHOWN mrll:users $USER_DIR/.config/i3
+      $CHOWN mrll:users $USER_DIR/.config/rofi
     '';
   };
 

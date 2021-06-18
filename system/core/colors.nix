@@ -8,44 +8,44 @@ with lib;
       primary = mkOption { type = with types; str; default = config.systemColors.base.gray9; };
       secondary = mkOption { type = with types; str; default = config.systemColors.base.gray8; };
       tertiary = mkOption { type = with types; str; default = config.systemColors.base.gray7; };
-      info = mkOption { type = with types; str; default = config.systemColors.base.blue5; };
-      danger = mkOption { type = with types; str; default = config.systemColors.base.red5; };
-      success = mkOption { type = with types; str; default = config.systemColors.base.green5; };
-      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow5; };
+      info = mkOption { type = with types; str; default = config.systemColors.base.blue4; };
+      danger = mkOption { type = with types; str; default = config.systemColors.base.red4; };
+      success = mkOption { type = with types; str; default = config.systemColors.base.green4; };
+      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow4; };
     };
     fg = {
       primary = mkOption { type = with types; str; default = config.systemColors.base.gray0; };
       secondary = mkOption { type = with types; str; default = config.systemColors.base.gray1; };
       tertiary = mkOption { type = with types; str; default = config.systemColors.base.gray2; };
-      info = mkOption { type = with types; str; default = config.systemColors.base.blue3; };
-      danger = mkOption { type = with types; str; default = config.systemColors.base.red3; };
-      success = mkOption { type = with types; str; default = config.systemColors.base.green3; };
-      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow3; };
+      info = mkOption { type = with types; str; default = config.systemColors.base.blue2; };
+      danger = mkOption { type = with types; str; default = config.systemColors.base.red2; };
+      success = mkOption { type = with types; str; default = config.systemColors.base.green2; };
+      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow2; };
     };
     border = {
       primary = mkOption { type = with types; str; default = config.systemColors.base.gray3; };
       secondary = mkOption { type = with types; str; default = config.systemColors.base.gray2; };
       tertiary = mkOption { type = with types; str; default = config.systemColors.base.gray1; };
-      info = mkOption { type = with types; str; default = config.systemColors.base.blue5; };
-      danger = mkOption { type = with types; str; default = config.systemColors.base.red5; };
-      success = mkOption { type = with types; str; default = config.systemColors.base.green5; };
-      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow5; };
+      info = mkOption { type = with types; str; default = config.systemColors.base.blue4; };
+      danger = mkOption { type = with types; str; default = config.systemColors.base.red4; };
+      success = mkOption { type = with types; str; default = config.systemColors.base.green4; };
+      warning = mkOption { type = with types; str; default = config.systemColors.base.yellow4; };
     };
     ansi = {
       black = mkOption { type = with types; str; default = config.systemColors.bg.primary; };
       blackBright = mkOption { type = with types; str; default = config.systemColors.bg.tertiary; };
       white = mkOption { type = with types; str; default = config.systemColors.fg.tertiary; };
       whiteBright = mkOption { type = with types; str; default = config.systemColors.fg.primary; };
-      red = mkOption { type = with types; str; default = config.systemColors.base.red5; };
-      redBright = mkOption { type = with types; str; default = config.systemColors.base.red3; };
-      green = mkOption { type = with types; str; default = config.systemColors.base.green5; };
-      greenBright = mkOption { type = with types; str; default = config.systemColors.base.green3; };
-      yellow = mkOption { type = with types; str; default = config.systemColors.base.yellow5; };
-      yellowBright = mkOption { type = with types; str; default = config.systemColors.base.yellow3; };
-      blue = mkOption { type = with types; str; default = config.systemColors.base.blue5; };
-      blueBright = mkOption { type = with types; str; default = config.systemColors.base.blue3; };
-      magenta = mkOption { type = with types; str; default = config.systemColors.base.pink5; };
-      magentaBright = mkOption { type = with types; str; default = config.systemColors.base.pink3; };
+      red = mkOption { type = with types; str; default = config.systemColors.base.red4; };
+      redBright = mkOption { type = with types; str; default = config.systemColors.base.red2; };
+      green = mkOption { type = with types; str; default = config.systemColors.base.green4; };
+      greenBright = mkOption { type = with types; str; default = config.systemColors.base.green2; };
+      yellow = mkOption { type = with types; str; default = config.systemColors.base.yellow4; };
+      yellowBright = mkOption { type = with types; str; default = config.systemColors.base.yellow2; };
+      blue = mkOption { type = with types; str; default = config.systemColors.base.blue4; };
+      blueBright = mkOption { type = with types; str; default = config.systemColors.base.blue2; };
+      magenta = mkOption { type = with types; str; default = config.systemColors.base.pink4; };
+      magentaBright = mkOption { type = with types; str; default = config.systemColors.base.pink2; };
       cyan = mkOption { type = with types; str; default = "#39c5cf"; };
       cyanBright = mkOption { type = with types; str; default = "#56d4dd"; };
     };
@@ -140,4 +140,23 @@ with lib;
       pink9 = mkOption { type = with types; str; default = "#551639"; };
     };
   };
+
+  config.console.colors = [
+    "${builtins.substring 1 6 config.systemColors.ansi.black}"
+    "${builtins.substring 1 6 config.systemColors.ansi.red}"
+    "${builtins.substring 1 6 config.systemColors.ansi.green}"
+    "${builtins.substring 1 6 config.systemColors.ansi.yellow}"
+    "${builtins.substring 1 6 config.systemColors.ansi.blue}"
+    "${builtins.substring 1 6 config.systemColors.ansi.magenta}"
+    "${builtins.substring 1 6 config.systemColors.ansi.cyan}"
+    "${builtins.substring 1 6 config.systemColors.ansi.white}"
+    "${builtins.substring 1 6 config.systemColors.ansi.blackBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.redBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.greenBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.yellowBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.blueBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.magentaBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.cyanBright}"
+    "${builtins.substring 1 6 config.systemColors.ansi.whiteBright}"
+  ];
 }

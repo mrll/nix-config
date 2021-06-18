@@ -14,9 +14,6 @@
   { name = "rust-analyzer"; publisher = "matklad"; version = "0.2.637"; sha256 = "1bi9xklbls0jpccfg9bh3vk5s7v8f3a6f331b4hw0mpiv72ls5fr"; }
   { name = "mongodb-vscode"; publisher = "mongodb"; version = "0.5.0"; sha256 = "00y9gqixlizr7sdic9hacfh0h1b6y0i187cyc63928b8q24sy8k3"; }
   { name = "vscode-docker"; publisher = "ms-azuretools"; version = "1.13.0"; sha256 = "09iq528m3f8xa67daxyxddmg6xkzbbs2jps4hdni68j7jn0724y7"; }
-  { name = "python"; publisher = "ms-python"; version = "2021.6.944021595"; sha256 = "17p1j0xd0crqv4wbs9qapvv4i8j9j446cbjqihpk9z6ryriim5ip"; }
-  { name = "vscode-pylance"; publisher = "ms-python"; version = "2021.6.2"; sha256 = "13ci4rgz97kjfhb60z95dzbhq2rq8kxi4wn9wp2xzaqgf50zx0v8"; }
-  { name = "jupyter"; publisher = "ms-toolsai"; version = "2021.7.945818462"; sha256 = "0chqcyvwlz67wmz6zx351vqbnyvgxwqsadhqv4jf3vz8c0psrqcp"; }
   { name = "docker-compose"; publisher = "p1c2u"; version = "0.3.5"; sha256 = "0ghyy5zll82yp0ddxspwcaa47dycc2g8lgy47wj7jvgiqdh1g5aw"; }
   { name = "quicktype"; publisher = "quicktype"; version = "12.0.46"; sha256 = "0mzn1favvrzqcigr74gmy167qak5saskhwcvhf7f00z7x0378dim"; }
   { name = "crates"; publisher = "serayuzgur"; version = "0.5.9"; sha256 = "0l26pyvw7n3bszf97yx6qps72acq112akg3q4jq5mvlibng1nwk0"; }

@@ -33,15 +33,11 @@
         overlaysBuilder = channels: [
           # Overwrites specified packages to be used from unstable channel.
           (final: prev: {
-            inherit (channels.unstable)
-              discord;
+            inherit (channels.unstable);
           })
           # Overwrites specified packages to be used from master channel.
           (final: prev: {
-            inherit (channels.master)
-              vivaldi
-              vivaldi-ffmpeg-codecs
-              vivaldi-widevine;
+            inherit (channels.master);
           })
         ];
       };
