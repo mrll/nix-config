@@ -37,6 +37,7 @@ in
 
       # ~ files
       $LINK -Tfs $DOTFILE_DIR/gitconfig        $USER_DIR/.gitconfig
+      $LINK -Tfs $DOTFILE_DIR/background-image $USER_DIR/.background-image
 
       # .config folder links
       $LINK -fs $DOTFILE_DIR/config/autorandr  $USER_DIR/.config/
