@@ -25,6 +25,7 @@ let
     neofetch
   ];
   securityPkgs = [
+    clamav
     gopass
     pass
   ];
