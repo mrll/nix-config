@@ -1,13 +1,18 @@
 { config, ... }:
 
 {
-  networking = {
-    networkmanager.enable = false;
+  imports = [
+    # Wifi Access Points
+    # ./secrets/wifi_networks.nix
+  ];
 
-    wireless = {
-      enable = true;
-      userControlled.enable = true;
-    };
+  networking = {
+    networkmanager.enable = true;
+
+    #wireless = {
+    #  enable = true;
+    #  userControlled.enable = true;
+    #};
 
     firewall = {
       enable = true;

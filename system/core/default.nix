@@ -2,8 +2,6 @@
 
 {
   imports = [
-    # Wifi Access Points & PSK
-    ./secrets/wifi_networks.nix
     # System Configuration
     ./audio.nix
     ./bluetooth.nix
