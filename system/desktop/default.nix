@@ -2,8 +2,9 @@
 
 {
   imports = [
-    # Window Manager
-    ./wm/i3.nix
+    # Desktop Environment
+    #./wm/i3.nix
+    ./wm/gnome.nix
     # Configuration
     ./fonts.nix
     ./opengl.nix
@@ -17,14 +18,15 @@
 
     desktopManager.xterm.enable = false;
     displayManager = {
-      autoLogin = {
+      gdm = {
         enable = true;
-        user = "mrll";
-      };
-      lightdm = {
-        enable = true;
-        background = ./wallpaper/wallpaper.png;
+        nvidiaWayland = true;
       };
     };
+
   };
+
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 }

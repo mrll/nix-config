@@ -8,20 +8,13 @@ let
     mongodb-compass
   ];
   mediaPkgs = [
-    celluloid
-    darktable
-    gnome.cheese
-    gthumb
-    lightworks
     pavucontrol
-    pinta
     spotify
-    xournalpp
   ];
   toolsPkgs = [
     arc-theme
     arc-icon-theme
-    alacritty
+    scrcpy
     vulkan-loader
     vulkan-tools
     glxinfo
@@ -40,6 +33,5 @@ let
 in
 {
   programs.browserpass.enable = true;
-
   environment.systemPackages = devPkgs ++ mediaPkgs ++ toolsPkgs ++ webPkgs;
 }

@@ -11,7 +11,7 @@ in
     createHome = true;
     isNormalUser = true;
     group = "users";
-    extraGroups = [ "wheel" "video" "audio" "disk" "plugdev" "libvirtd" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "disk" "plugdev" "libvirtd" "docker" ];
     hashedPassword = fileContents ./secrets/mrll.hash;
     shell = pkgs.zsh;
     openssh.authorizedKeys.keyFiles = [ ./secrets/ssh.pub ];
@@ -27,7 +27,7 @@ in
       export MKDIR=/run/current-system/sw/bin/mkdir
       export CHOWN=/run/current-system/sw/bin/chown
       export DOTFILE_DIR=/etc/nixos/users/mrll/secrets
-      export USER_DIR=/home/mrll
+      export USER_DIR=${config.users.users.mrll.home}
 
       # create directories
       $MKDIR -p $USER_DIR/.config
@@ -54,11 +54,11 @@ in
       $LINK -fs /etc/rofi.rasi                  $USER_DIR/.config/rofi/config.rasi
 
       # update owner & group
-      $CHOWN mrll:users $USER_DIR/.config
-      $CHOWN mrll:users $USER_DIR/.config/alacritty
-      $CHOWN mrll:users $USER_DIR/.config/Code/User
-      $CHOWN mrll:users $USER_DIR/.config/i3
-      $CHOWN mrll:users $USER_DIR/.config/rofi
+      $CHOWN ${config.users.users.mrll.name}:${config.users.users.mrll.group} $USER_DIR/.config
+      $CHOWN ${config.users.users.mrll.name}:${config.users.users.mrll.group} $USER_DIR/.config/alacritty
+      $CHOWN ${config.users.users.mrll.name}:${config.users.users.mrll.group} $USER_DIR/.config/Code/User
+      $CHOWN ${config.users.users.mrll.name}:${config.users.users.mrll.group} $USER_DIR/.config/i3
+      $CHOWN ${config.users.users.mrll.name}:${config.users.users.mrll.group} $USER_DIR/.config/rofi
     '';
   };
 
@@ -78,7 +78,7 @@ in
           mkdir -p $EXT_DIR
           chown ${config.users.users.mrll.name}:${config.users.users.mrll.group} $EXT_DIR
           for x in ${lib.concatMapStringsSep " " toString vscodeExtensions}; do
-              ln -sf $x/share/vscode/extensions/* $EXT_DIR/
+          ln -sf $x/share/vscode/extensions/* $EXT_DIR/
           done
           chown -R ${config.users.users.mrll.name}:${config.users.users.mrll.group} $EXT_DIR
         '';
