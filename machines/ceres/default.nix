@@ -1,13 +1,20 @@
 { config, pkgs, ... }:
 
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
 {
   imports = [
     ../hardware/cpu/intel
     ../hardware/devices/all
     ../hardware/laptop
     ../hardware/ssd
-  ] ++ [
-    ./mobile.nix
   ];
 
   networking.hostName = "ceres";
@@ -96,18 +103,18 @@
   # nvidia egpu
   # --------------------------------------------------------------------------
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
     prime = {
-      sync.enable = true;
-      sync.allowExternalGpu = true;
+      offload.enable = true;
       nvidiaBusId = "PCI:6:0:0";
       intelBusId = "PCI:0:2:0";
     };
     modesetting.enable = true;
   };
+
+  environment.systemPackages = [ nvidia-offload ];
 
   # --------------------------------------------------------------------------
   # thunderbolt for egpu
