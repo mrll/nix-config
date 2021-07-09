@@ -33,7 +33,7 @@
         overlaysBuilder = channels: [
           # Overwrites specified packages to be used from unstable channel.
           (final: prev: {
-            inherit (channels.unstable);
+            inherit (channels.unstable) vscode;
           })
           # Overwrites specified packages to be used from master channel.
           (final: prev: {
